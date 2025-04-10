@@ -1,9 +1,17 @@
 #ifndef __LIBRISCV_H__
 #define __LIBRISCV_H__
 
-#if defined(__linux__) || defined(__android__) // Linux-specifc things  
-#endif
-
-#ifdef _MSC_VER // Windows-specific things 
-#endif 
+#include <cstdint>
+namespace RISCV {
+    struct DecodedInst {
+        unsigned opcode;
+    };
+    
+    enum Status {
+        SUCCESS = 0,
+        INVALID_OPCODE,
+        INVALID_INSTRUCTION
+    };
+    int Decode(uint32_t ins);
+}
 #endif

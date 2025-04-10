@@ -1,5 +1,5 @@
-set(SOURCE_FILES lib.cpp)
-set(CMAKE_CXX_FLAGS "-I${CMAKE_SOURCE_DIR}/include")
+set(SOURCE_FILES lib.cpp decoders.cpp)
+set(CMAKE_CXX_FLAGS "-I${CMAKE_SOURCE_DIR}/include -fvisibility=hidden")
 set(HEADERS  ${CMAKE_SOURCE_DIR}/include/demo.h)
-add_library(riscv SHARED ${SOURCE_FILES} ../include/demo.h)
+add_library(riscv SHARED ${SOURCE_FILES})
 target_link_directories(riscv PRIVATE ${CMAKE_SOURCE_DIR}/include)
