@@ -2,6 +2,9 @@
 #define __LIBRISCV_H__
 
 #include <cstdint>
+#include "opcodes.h"
+#include <string>
+
 namespace RISCV {
     struct DecodedInst {
         unsigned opcode;
@@ -12,6 +15,7 @@ namespace RISCV {
         INVALID_OPCODE,
         INVALID_INSTRUCTION
     };
-    int Decode(uint32_t ins);
+    int Decode(uint32_t ins, DecodedInst*);
+	std::string ToString(const DecodedInst&);
 }
 #endif

@@ -1,5 +1,5 @@
-#ifndef __INTERNALS_H__
-#define __INTERNALS_H__
+#ifndef __OPMAP_H__
+#define __OPMAP_H__
 
 #include <cstdint>
 //  Opcodes for extensions skipped until implemented

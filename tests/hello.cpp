@@ -9,5 +9,10 @@ int main(int argc, const char** argv) {
     }
 
     uint32_t n = strtol(argv[1], nullptr, 0);
-    return RISCV::Decode(n);
+	RISCV::DecodedInst di;
+    int status = RISCV::Decode(n, &di);
+	if (status != RISCV::SUCCESS) 
+		return 1;
+	std::cout << "Instruction: " << RISCV::ToString(di) << std::endl;
+	return 0;
 }
