@@ -47,11 +47,11 @@ struct InstFmt {
 // All the known instruction formats
 static const InstFmt RType = { 0x7C0U, 0xF8000U, 0x1F00000U, 
     0x7000U, 0xFE000000U, NQ_MASK};
-static const InstFmt IType = { 0x7C0U, 0XF800U, NQ_MASK, 
+static const InstFmt IType = { 0x7C0U, 0xF800U, NQ_MASK, 
     0x7000U, NQ_MASK, 0xFFF00000U};
 static const InstFmt SType = { NQ_MASK, 0xF8000U, 0x1F00000U, 
     0x7000U, NQ_MASK, (0x7C0U | 0xFE000000U)};
-static const InstFmt BType = { NQ_MASK, 0xF800U, 0x1F00000U, 
+static const InstFmt BType = { NQ_MASK, 0xF8000U, 0x1F00000U, 
     0x7000U, NQ_MASK, (0x7C0U | 0xFE000000U)};
 static const InstFmt UType = { 0x7C0U, NQ_MASK, NQ_MASK,
      NQ_MASK, NQ_MASK, 0xFFFFF000U};
