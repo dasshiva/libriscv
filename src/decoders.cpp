@@ -13,12 +13,14 @@ int DecodeBType(uint32_t ins, DecodedInst* inst) {
 	inst->opcode |= (mask->funct3 & ins) << 8;
 	inst->src1 = (mask->rs1 & ins) >> 15;
 	inst->src2 = (mask->rs2 & ins) >> 20;
+	uint32_t sign = ((ins & (1U << 31)) >> 31);
 	inst->imm  = (((ins & (1U << 7)) >> 7) << 11) | // Bit 11 
 					(((ins & B_TYPE_LO) >> 8) << 1)  | // Bits 1-4
 					(((ins & B_TYPE_HI) >> 25) << 5)  | // Bits 5-10
 					(((ins & (1U << 31)) >> 31) << 12); // Bit 12
-	if (inst->imm > 4096)
-		inst->imm -= 8192;
+	
+	// Sign extension
+	inst->imm = (inst->imm << 20) >> 20;
 	std::cout << inst->imm << "\n";
 	return 1;
 }
